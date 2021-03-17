@@ -39,9 +39,10 @@
                     <th scope="col">风扇转速</th>
                     <th scope="col">内存容量</th>
                     <th scope="col">设备温度</th>
-                    <th scope="col">硬盘型号</th>
-                    <th scope="col">外接U盘</th>
                     <th scope="col">网络接口</th>
+                    <th scope="col">内存测试</th>
+                    <th scope="col">USB测试</th>
+                    <th scope="col">硬盘型号</th>
                     <th scope="col">结果</th>
                     <th scope="col">测试次数</th>
                     <th scope="col">添加时间</th>
@@ -97,19 +98,23 @@
                                 class="{{$test->result['nas_temp']['is_ok'] === 'PASS' ? 'text-success' : 'text-danger' }}">{{ $test->result['nas_temp']['is_ok'] }}</span>
                         </td>
                         <td>
-                            {!! implode('<br/>',$test->result['disk']['res']) !!}
+                            {!! implode('<br/>',$test->result['net']['res']) !!}
                             <span
-                                class="{{ \Illuminate\Support\Str::contains($test->result['disk']['is_ok'],'PASS') ? 'text-success' : 'text-danger' }}">{{ $test->result['disk']['is_ok'] }}</span>
+                                class="{{ \Illuminate\Support\Str::contains($test->result['net']['is_ok'],'PASS') ? 'text-success' : 'text-danger' }}">{{ $test->result['net']['is_ok'] }}</span>
+                        </td>
+                        <td>
+                            {{ $test->result['mem']['res'] }} <span
+                                class="{{ \Illuminate\Support\Str::contains($test->result['mem']['is_ok'],'PASS') ? 'text-success' : 'text-danger' }}">{{ $test->result['mem']['is_ok'] }}</span>
                         </td>
                         <td>
                             {!! implode('<br/>',$test->result['u_disk']['res']) !!}
                             <span
-                                class="{{$test->result['u_disk']['is_ok'] === 'PASS' ? 'text-success' : 'text-danger' }}">{{ $test->result['u_disk']['is_ok'] }}</span>
+                                class="{{ \Illuminate\Support\Str::contains($test->result['u_disk']['is_ok'],'PASS') ? 'text-success' : 'text-danger' }}">{{ $test->result['u_disk']['is_ok'] }}</span>
                         </td>
                         <td>
-                            {!! implode('<br/>',$test->result['net']['res']) !!}
+                            {!! implode('<br/>',$test->result['disk']['res']) !!}
                             <span
-                                class="{{ \Illuminate\Support\Str::contains($test->result['net']['is_ok'],'PASS') ? 'text-success' : 'text-danger' }}">{{ $test->result['net']['is_ok'] }}</span>
+                                class="{{ \Illuminate\Support\Str::contains($test->result['disk']['is_ok'],'PASS') ? 'text-success' : 'text-danger' }}">{{ $test->result['disk']['is_ok'] }}</span>
                         </td>
                         <td>
                             <strong
