@@ -103,11 +103,12 @@
                                 class="{{ \Illuminate\Support\Str::contains($test->result['net']['is_ok'],'PASS') ? 'text-success' : 'text-danger' }}">{{ $test->result['net']['is_ok'] }}</span>
                         </td>
                         <td>
-                            {{ $test->result['mem']['res'] }} <span
+                            {{ str_replace('等待中……',"跳过",$test->result['mem']['res']) }}
+                            <span
                                 class="{{ \Illuminate\Support\Str::contains($test->result['mem']['is_ok'],'PASS') ? 'text-success' : 'text-danger' }}">{{ str_replace('等待中……',"跳过",$test->result['mem']['is_ok']) }}</span>
                         </td>
                         <td>
-                            {!! implode('<br/>',$test->result['u_disk']['res']) !!}
+                            {!! implode('<br/>',str_replace('等待中……',"跳过",$test->result['u_disk']['res'])) !!}
                             <span
                                 class="{{ \Illuminate\Support\Str::contains($test->result['u_disk']['is_ok'],'PASS') ? 'text-success' : 'text-danger' }}">{{ str_replace('等待中……',"跳过",$test->result['u_disk']['is_ok']) }}</span>
                         </td>
