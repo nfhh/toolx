@@ -18,7 +18,7 @@ class Sn extends Component
     {
         for ($i = 0; $i < $this->total; $i++) {
             $str = $this->alg();
-            $this->sns .= $str . PHP_EOL;
+            $this->sns .= $str.PHP_EOL;
             $this->excel_sns[] = [$str];
         }
         $this->disabled = false;
@@ -31,7 +31,11 @@ class Sn extends Component
 
     private function alg()
     {
-        return strtoupper(Str::random(6));
+        $indicate_year = 'ABCDEFGHKLMN'[now()->year - 2021];
+        $millisecond = now()->toDateTimeLocalString('millisecond');
+        $millisecond_last = substr($millisecond, -3);
+        $sn = $indicate_year.$millisecond_last.Str::random(5);
+        return strtoupper($sn);
     }
 
     public function render()
