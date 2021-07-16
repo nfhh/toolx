@@ -115,7 +115,7 @@
                         <td>
                             {!! implode('<br/>',$test->result['disk']['res']) !!}
                             <span
-                                class="{{ \Illuminate\Support\Str::contains($test->result['disk']['is_ok'],'PASS') ? 'text-success' : 'text-danger' }}">{{ $test->result['disk']['is_ok'] }}</span>
+                                class="{{ \Illuminate\Support\Str::contains($test->result['disk']['is_ok'],'PASS') ? 'text-success' : 'text-danger' }}">{!! $test->result['disk']['is_ok'] !!}</span>
                         </td>
                         <td>
                             <strong
