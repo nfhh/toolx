@@ -100,7 +100,7 @@
                         <td>
                             {!! implode('<br/>',$test->result['net']['res']) !!}
                             <span
-                                class="{{ \Illuminate\Support\Str::contains($test->result['net']['is_ok'],'PASS') ? 'text-success' : 'text-danger' }}">{{ $test->result['net']['is_ok'] }}</span>
+                                class="{{ \Illuminate\Support\Str::contains($test->result['net']['is_ok'],'PASS') ? 'text-success' : 'text-danger' }}">{!! $test->result['net']['is_ok'] !!}</span>
                         </td>
                         <td>
                             {{ str_replace('等待中……',"跳过",$test->result['mem']['res']) }}
