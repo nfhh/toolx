@@ -35,14 +35,15 @@ class Sn extends Component
         $millisecond = now()->toDateTimeLocalString('millisecond');
         $millisecond_last = substr($millisecond, -3);
         $sn = $indicate_year.$millisecond_last.Str::random(5);*/
-        $mills_timestamp = now()->timestamp . now()->milli; // 13位毫秒时间戳
-        $millisecond = now()->toDateTimeLocalString('millisecond');
-        $indicate_year = 'ABCDEFGHKLMN'[now()->year - 2020];
-        $month_day = now()->month . now()->day;
-        $mills_timestamp_last = substr($mills_timestamp, -5);
-        $millisecond_last = substr($millisecond, -3);
-        $random = Str::random(6);
-        return strtoupper($indicate_year . $month_day . $mills_timestamp_last . $millisecond_last . $random);
+//        $mills_timestamp = now()->timestamp . now()->milli; // 13位毫秒时间戳
+//        $millisecond = now()->toDateTimeLocalString('millisecond');
+//        $indicate_year = 'ABCDEFGHKLMN'[now()->year - 2020];
+//        $month_day = now()->month . now()->day;
+//        $mills_timestamp_last = substr($mills_timestamp, -5);
+//        $millisecond_last = substr($millisecond, -3);
+//        $random = Str::random(6);
+//        return strtoupper($indicate_year . $month_day . $mills_timestamp_last . $millisecond_last . $random);
+        return strtoupper(Str::random(18));
     }
 
     public function render()
